@@ -1,0 +1,13 @@
+version: '2'
+services:
+  redmine:
+    image: redmine
+    links:
+      - db:mysql
+    ports:
+      - 3000:3000
+  db:
+    image: mysql
+    volumes:
+     - /var/lib/mysql
+    env_file: ./data/variables.env
